@@ -16,7 +16,7 @@
     "react": "18.0.0",
     "react-native": "0.69.4",
     "react-native-heroicons": "^2.2.0",
-    "react-native-svg": "^13.0.0",
+    "react-native-svg": "12.3.0",
     "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
