@@ -19,17 +19,15 @@ export default function HomeScreen() {
             {/* Header */}
             <View className="flex-row items-center mx-4 space-x-4 mb-4">
                 <Image 
-                    source={{
-                        uri: 'http://links.papareact.com/wru'
-                    }} 
+                    source={{uri: 'http://links.papareact.com/wru'}} 
                     className="h-20 w-20 bg-gray-300 p-4 rounded-full"
                 />
                 <View className="flex-1">
                     <Text className="font-bold text-xl">Deliver now</Text>
-                    <Text className="text-gray-400">
-                        Current location
-                        <ChevronDownIcon size={30} color='#00CCBB' />
-                    </Text>
+                    <View className="flex-row items-center justify-between">
+                        <Text className="text-gray-400">Current location</Text>
+                        <ChevronDownIcon size={20} color='#00CCBB' />
+                    </View>
                 </View>
                 <UserIcon size={35} color='#00CCBB' />
             </View>
@@ -48,12 +46,11 @@ export default function HomeScreen() {
             </View>
 
             {/* Body */}
-            <ScrollView className="flex-1 bg-red-200" contentContainerStyle={{paddingBottom: 100}}>
+            <ScrollView className="flex-1 bg-gray-200" contentContainerStyle={{paddingBottom: 100}}>
                 {/* Categories */}
                 <Categories />
                 
                 {/* Featured Row */}
-                
                 <FeaturedRow
                     id="123"
                     title="Featured" 
