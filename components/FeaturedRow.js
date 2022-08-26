@@ -14,7 +14,7 @@ export default function FeaturedRow({id, title, description}) {
             <ScrollView 
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingHorizontal: 15}}
+                contentContainerStyle={{paddingHorizontal: 0}}
                 className="pt-4 bg-white">
                     {/* Restaurant cards */}
                     <RestaurantCard 
@@ -23,8 +23,8 @@ export default function FeaturedRow({id, title, description}) {
                         title="Sushi"
                         rating={5.0}
                         genre="Japanese"
-                        address="Casa de Adri"
-                        description="La casa de Adri"
+                        address="Sushito"
+                        description="Comida japonesa"
                         dishes={[]}
                         long={20}
                         latitude={0} />
@@ -35,8 +35,8 @@ export default function FeaturedRow({id, title, description}) {
                         title="Sushi"
                         rating={5.0}
                         genre="Japanese"
-                        address="Casa de Adri"
-                        description="La casa de Adri"
+                        address="Sushito"
+                        description="Comida japonesa"
                         dishes={[]}
                         long={20}
                         latitude={0} />
@@ -47,8 +47,8 @@ export default function FeaturedRow({id, title, description}) {
                         title="Sushi"
                         rating={5.0}
                         genre="Japanese"
-                        address="Casa de Adri"
-                        description="La casa de Adri"
+                        address="Sushito"
+                        description="Comida japonesa"
                         dishes={[]}
                         long={20}
                         latitude={0} />

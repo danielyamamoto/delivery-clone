@@ -15,7 +15,7 @@ export default function HomeScreen() {
     }, [])
 
     return (
-        <SafeAreaView>
+        <SafeAreaView className="bg-white">
             {/* Header */}
             <View className="flex-row items-center mx-4 space-x-4 mb-4">
                 <Image 
@@ -33,8 +33,8 @@ export default function HomeScreen() {
             </View>
 
             {/* Search */}
-            <View className="flex-row items-center space-x-1 pd-2 mx-2 mb-4">
-                <View className="flex-row flex-1 space-x-2 p-2 bg-gray-200" style={{borderRadius: 20}}>
+            <View className="flex-row items-center space-x-2 mx-4 mb-4 ">
+                <View className="flex-row flex-1 space-x-2 p-2 bg-gray-100" style={{borderRadius: 20}}>
                     <SearchIcon size={25} color='#C3C3C3' />
                     <TextInput 
                         className="ml-4 mr-4 flex-1" 
@@ -46,7 +46,7 @@ export default function HomeScreen() {
             </View>
 
             {/* Body */}
-            <ScrollView className="flex-1 bg-gray-200" contentContainerStyle={{paddingBottom: 100}}>
+            <ScrollView className="flex-1 " contentContainerStyle={{paddingBottom: 100}}>
                 {/* Categories */}
                 <Categories />
                 
