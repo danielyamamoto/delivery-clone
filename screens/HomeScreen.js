@@ -67,20 +67,13 @@ export default function HomeScreen() {
                 <Categories />
                 
                 {/* Featured Row */}
-                <FeaturedRow
-                    id="123"
-                    title="Featured" 
-                    description="FeaturedRow" />
-                {/* Discounts */}
-                <FeaturedRow 
-                    id="1234"
-                    title="Featured" 
-                    description="FeaturedRow" />
-                {/* Offers near you */}
-                <FeaturedRow 
-                    id="1235"
-                    title="Featured" 
-                    description="FeaturedRow" />
+                { featuredCategories?.map((category) => (
+                    <FeaturedRow
+                        key={category._id}
+                        id={category._id}
+                        title={category.name} 
+                        description={category.short_description} />
+                ))}
             </ScrollView>
         </SafeAreaView>
     )

@@ -1,26 +1,32 @@
-import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import { React, useState, useEffect } from 'react';
+import { ScrollView } from 'react-native';
 import CategoryCard from '../components/CategoryCard';
+import SanityClient from '../sanity'; 
+import { urlFor } from '../sanity';
 
 export default function Categories() {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        SanityClient.fetch(`
+            *[_type == 'categories']
+        `).then((data) => {
+            setCategories(data);
+        });
+    }, [])
+
     return (
         <ScrollView
             className="mb-4"
             contentContainerStyle={{paddingHorizontal: 15, paddingTop: 10}}
             horizontal
             showsHorizontalScrollIndicator={false}>
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing1' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing2' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing3' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing1' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing2' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing3' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing1' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing2' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing3' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing1' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing2' />
-            <CategoryCard imgUrl='http://links.papareact.com/gn7' title='testing3' />
+            { categories?.map(category => (
+                <CategoryCard 
+                    key={category._id}
+                    imgUrl={urlFor(category.image).width(200).url()} 
+                    title={category.name} />
+            ))}    
         </ScrollView>
     )     
 }
