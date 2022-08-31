@@ -7,7 +7,7 @@ import { ChevronRightIcon } from 'react-native-heroicons/outline';
 import { urlFor } from '../sanity';
 import { setRestaurant } from '../features/restaurantSlice';
 import DishRow from '../components/DishRow';
-import BasketIcon from '../components/BastekIcon';
+import BasketIcon from '../components/BasketIcon';
 
 export default function RestaurantScreen() {
     const navigation = useNavigation();

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { View, Text, TouchableOpacity } from 'react-native'
 import { selectBasketItems, selectBasketTotal } from '../features/basketSlice';
 
-export default function BastekIcon() {
+export default function BasKetIcon() {
     const items = useSelector(selectBasketItems);
     const navigation = useNavigation();
     const basketTotal = useSelector(selectBasketTotal);
