@@ -39,6 +39,8 @@ export default function RestaurantScreen() {
                 address, 
                 description, 
                 dishes,
+                long,
+                latitude,
             })
         );
     }, [dispatch])
