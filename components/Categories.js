@@ -21,11 +21,12 @@ export default function Categories() {
             contentContainerStyle={{paddingHorizontal: 15, paddingTop: 10}}
             horizontal
             showsHorizontalScrollIndicator={false}>
-            { categories?.map(category => (
-                <CategoryCard 
+            { categories?.map((category, index) => (
+                <CategoryCard
                     key={category._id}
                     imgUrl={urlFor(category.image).width(200).url()} 
-                    title={category.name} />
+                    title={category.name} 
+                    classType={index < categories.length - 1 ? "relative mr-3" : "relative"} />
             ))}    
         </ScrollView>
     )     
