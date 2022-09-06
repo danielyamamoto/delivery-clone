@@ -1,7 +1,8 @@
 import { React, useLayoutEffect, useState, useEffect } from 'react';
-import { View,Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native';
+import { View,Text, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { ChevronDownIcon, UserIcon, SearchIcon, CogIcon } from 'react-native-heroicons/outline';
+import { ChevronDownIcon, SearchIcon, CogIcon } from 'react-native-heroicons/outline';
+import { UserIcon } from 'react-native-heroicons/solid';
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import SanityClient from '../sanity';
@@ -45,7 +46,13 @@ export default function HomeScreen() {
                         <ChevronDownIcon size={20} color='#00CCBB' />
                     </View>
                 </View>
-                <UserIcon size={35} color='#00CCBB' />
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('Profile')}
+                    className="bg-gray-200 rounded-full overflow-hidden">
+                    <View className="translate-y-1">
+                        <UserIcon size={35} color='#00CCBB' />
+                    </View>
+                </TouchableOpacity>
             </View>
 
             {/* Search */}

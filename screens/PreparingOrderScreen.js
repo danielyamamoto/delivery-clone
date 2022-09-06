@@ -16,7 +16,7 @@ export default function PreparingOrderScreen() {
     return (
         <SafeAreaView className="flex-1 justify-center items-center">
             <Animatable.Image
-                source={require('../assets/siu-siu-siu.gif')}
+                source={ require('../assets/siu-siu-siu.gif') }
                 animation='slideInUp'
                 iterationCount={1}
                 className="h-96 w-96" />
