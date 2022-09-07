@@ -85,7 +85,9 @@ export default function RestaurantScreen() {
                         </View>
                         <Text className="text-gray-500 mt-2 pb-4">{description}</Text>
                     </View>
-                    <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+                    <TouchableOpacity 
+                        onPress={() => navigation.navigate('Allergy')}
+                        className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
                         <QuestionMarkCircleIcon size={20} color="black" opacity={0.5} />
                         <Text className='pl-2 flex-1 text-md font-bold'>Have food allergy?</Text>
                         <ChevronRightIcon color ='#00CCBB'strokeWidth={2} />

@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native'
 import { LocationMarkerIcon, MailIcon, PhoneIcon, XCircleIcon } from 'react-native-heroicons/outline';
 
 export default function ProfileScreen() {
-    navigation = useNavigation();
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className="flex-1 items-center justify-start space-y-10">
@@ -13,15 +13,15 @@ export default function ProfileScreen() {
                     <Text className="text-lg font-bold text-center">Profile</Text>
                     <Text className="text-center text-gray-400">Karla Elías</Text>
                 </View>
+                { /* 
                 <TouchableOpacity
                     onPress={navigation.goBack}
                     className="rounded-full bg-gray-100 absolute top-3 right-3">
-                    { /* 
                     <View className="bg-white">
                         <XCircleIcon size={50} color="#00CCBB" fill="white" strokeWidth={1} />
                     </View>
-                    */}
                 </TouchableOpacity>
+                */}
             </View>
 
             <Image 

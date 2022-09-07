@@ -12,6 +12,7 @@ import PreparingOrderScreen from './screens/PreparingOrderScreen';
 import DeliveryScreen from './screens/DeliveryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CategoryScreen from './screens/CategoryScreen';
+import AllergyScreen from './screens/AllergyScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,8 @@ export default function App() {
               options={{ presentation: 'modal', headerShown: false }} />
             <Stack.Screen name='Category' component={CategoryScreen} 
               options={{ headerShown: false }} />
+            <Stack.Screen name='Allergy' component={AllergyScreen} 
+              options={{ presentation: 'modal', headerShown: false }} />
           </Stack.Navigator>
         </TailwindProvider>
       </Provider>
