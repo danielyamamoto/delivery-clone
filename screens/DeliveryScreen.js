@@ -60,7 +60,28 @@ export default function DeliveryScreen() {
                         description={restaurant.description}
                         identifier='origin'
                         pinColor="#00CCBB" />
+                    <Marker 
+                        coordinate={{
+                            latitude: 19.283599936722986,
+                            longitude: -99.13527511644496,
+                        }}
+                        title="Client"
+                        description="Karla Elías"
+                        identifier='origin'
+                        pinColor="#FFC0D0" />
             </MapView>
+
+            <View className="bg-white">
+                <View className="flex-row items-center p-5 mb-8">
+                    <Image 
+                        source={ require('../assets/doggy2.jpg') }
+                        className="h-16 w-16 mr-4 rounded-full" />
+                    <View className="flex-col">
+                        <Text className="text-black font-bold">Delivery man</Text>
+                        <Text className="text-gray-400">Daniel Yamamoto, here I go!</Text>
+                    </View>
+                </View>
+            </View>
         </View>
     )
 }
