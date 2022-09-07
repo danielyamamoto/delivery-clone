@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { ArrowRightIcon } from 'react-native-heroicons/outline';
+import { ArrowNarrowRightIcon } from 'react-native-heroicons/outline';
 import RestaurantCard from './RestaurantCard';
 import SanityClient from '../sanity';
 
-export default function FeaturedRow({id, title, description}) {
+export default function FeaturedRow({id, title, description, classType}) {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
@@ -25,10 +25,12 @@ export default function FeaturedRow({id, title, description}) {
     }, [])
 
     return (
-        <View className="px-4">
+        <View className={classType}>
             <View className="flex-row items-center justify-between mt-4">
                 <Text className="font-bold text-lg">{title}</Text>
-                <ArrowRightIcon color='#00CCBB' />
+                <View className="bg-[#00CCBB] rounded-full p-1">
+                    <ArrowNarrowRightIcon size={22} color='black' />
+                </View>
             </View>
             <Text className="text-xs text-gray-500">{description}</Text>
             <ScrollView 
@@ -37,7 +39,7 @@ export default function FeaturedRow({id, title, description}) {
                 contentContainerStyle={{paddingHorizontal: 0}}
                 className="pt-4 bg-white">
                     {/* Restaurant cards */}
-                    {restaurants?.map((restaurant) => (
+                    {restaurants?.map((restaurant, index) => (
                         <RestaurantCard 
                             key={restaurant._id}                        
                             id={restaurant._id}
@@ -49,7 +51,8 @@ export default function FeaturedRow({id, title, description}) {
                             description={restaurant.short_description}
                             dishes={restaurant.dishes}
                             long={restaurant.long}
-                            latitude={restaurant.lat} />
+                            latitude={restaurant.lat}
+                            classType={index < restaurants.length - 1 ? "bg-gray-100 rounded-2xl mr-5" : "bg-gray-100 rounded-2xl"} />
                     ))}
             </ScrollView>
         </View>

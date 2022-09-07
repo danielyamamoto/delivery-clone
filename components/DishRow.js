@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View, TouchableOpacity, Text, Image  } from 'react-native';
 import { urlFor } from '../sanity';
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid';
-import { addToBasket, removeFromBasket, selectBasketItems, selectBasketItemsWithId } from '../features/basketSlice';
+import { addToBasket, removeFromBasket, selectBasketItemsWithId } from '../features/basketSlice';
 
 export default function DishRow({id, name, image, description, price}) {
     const [isPressed, setPressed] = useState(false);

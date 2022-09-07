@@ -24,8 +24,8 @@ export default function CategoryScreen() {
                 </View>
                 <TouchableOpacity 
                         onPress={navigation.goBack}
-                        className="absolute top-2 left-5 p-2 bg-gray-100 rounded-full">
-                        <ArrowLeftIcon size={20} color="#00CCBB" />
+                        className="absolute top-2 left-5 p-2 bg-[#00CCBB] rounded-full">
+                        <ArrowLeftIcon size={20} color="black" />
                 </TouchableOpacity>
             </View>
 
@@ -36,7 +36,7 @@ export default function CategoryScreen() {
                     showsVerticalScrollIndicator={false}
                     className="bg-white">
                         {/* Restaurant cards */}
-                        {restaurants?.map(restaurant => (
+                        {restaurants?.map((restaurant, index) => (
                             <RestaurantCard
                             key={restaurant._id}                        
                             id={restaurant._id}
@@ -46,11 +46,12 @@ export default function CategoryScreen() {
                             genre={type}
                             address={restaurant.address}
                             description={restaurant.short_description}
-                                dishes={restaurant.dishes}
-                                long={restaurant.long}
-                                latitude={restaurant.lat}
-                                isCategory={true} />
-                                ))}
+                            dishes={restaurant.dishes}
+                            long={restaurant.long}
+                            latitude={restaurant.lat}
+                            isCategory={true} 
+                            classType={index < restaurants.length - 1 ? "mb-2" : "mb-12" } />
+                        ))}
                 </ScrollView>
             </View>
 

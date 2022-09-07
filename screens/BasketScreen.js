@@ -31,11 +31,13 @@ export default function BasketScreen() {
                         <Text className="text-lg font-bold text-center">Basket</Text>
                         <Text className="text-center text-gray-400">{restaurant.title}</Text>
                     </View>
+                    {/*
                     <TouchableOpacity
                         onPress={navigation.goBack}
                         className="rounded-full bg-gray-100 absolute top-3 right-3">
                         <XCircleIcon size={50} color="#00CCBB" />
                     </TouchableOpacity>
+                     */}
                 </View>
 
                 <View className="flex-row items-center space-x-4 px-4 py-4 bg-white my-5">

@@ -1,8 +1,7 @@
 import { React, useLayoutEffect, useState, useEffect } from 'react';
 import { View,Text, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { ChevronDownIcon, SearchIcon, CogIcon } from 'react-native-heroicons/outline';
-import { UserIcon } from 'react-native-heroicons/solid';
+import { UserCircleIcon, ChevronDownIcon, SearchIcon, CogIcon } from 'react-native-heroicons/outline';
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import SanityClient from '../sanity';
@@ -43,14 +42,14 @@ export default function HomeScreen() {
                     <Text className="font-bold text-xl">Deliver now</Text>
                     <View className="flex-row items-center justify-between">
                         <Text className="text-gray-400">Current location</Text>
-                        <ChevronDownIcon size={20} color='#00CCBB' />
+                        <ChevronDownIcon size={20} color='#00CCBB' strokeWidth={2} />
                     </View>
                 </View>
                 <TouchableOpacity 
                     onPress={() => navigation.navigate('Profile')}
-                    className="bg-gray-200 rounded-full overflow-hidden">
-                    <View className="translate-y-1">
-                        <UserIcon size={35} color='#00CCBB' />
+                    className="bg-[#00CCBB] rounded-full">
+                    <View className="p-1">
+                        <UserCircleIcon size={25} color='black' />
                     </View>
                 </TouchableOpacity>
             </View>
@@ -65,7 +64,7 @@ export default function HomeScreen() {
                         keyboardType='default' 
                     />
                 </View>
-                <CogIcon size={25} color='#00CCBB'/>
+                <CogIcon size={25} color='black' opacity={0.4} />
             </View>
 
             {/* Body */}
@@ -74,12 +73,13 @@ export default function HomeScreen() {
                 <Categories />
                 
                 {/* Featured Row */}
-                { featuredCategories?.map(category => (
+                { featuredCategories?.map((category, index) => (
                     <FeaturedRow
                         key={category._id}
                         id={category._id}
                         title={category.name} 
-                        description={category.short_description} />
+                        description={category.short_description}
+                        classType={index < featuredCategories.length - 1 ? "px-4" : "px-4 mb-12"} />
                 ))}
             </ScrollView>
         </SafeAreaView>

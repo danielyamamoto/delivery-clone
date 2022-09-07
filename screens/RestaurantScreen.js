@@ -2,8 +2,7 @@ import { React, useLayoutEffect, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { ArrowLeftIcon, StarIcon, LocationMarkerIcon, QuestionMarkCircleIcon } from 'react-native-heroicons/solid';
-import { ChevronRightIcon } from 'react-native-heroicons/outline';
+import { ArrowLeftIcon, StarIcon, LocationMarkerIcon, QuestionMarkCircleIcon, ChevronRightIcon } from 'react-native-heroicons/outline';
 import { urlFor } from '../sanity';
 import { setRestaurant } from '../features/restaurantSlice';
 import DishRow from '../components/DishRow';
@@ -62,30 +61,34 @@ export default function RestaurantScreen() {
                     />
                     <TouchableOpacity 
                         onPress={navigation.goBack}
-                        className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full">
-                            <ArrowLeftIcon size={20} color="#00CCBB" />
+                        className="absolute top-14 left-5 p-2 bg-[#00CCBB] rounded-full">
+                            <ArrowLeftIcon size={20} color="black" />
                     </TouchableOpacity>
                 </View>
 
                 <View className="bg-white">
                     <View className="px-4 pt-4">
                         <Text className="text-3xl font-bold">{title}</Text>
-                        <View className="flex-row space-x-2 my-1">
-                            <StarIcon size={22} color="#00CCBB" opacity={0.5} />
+                        <View className="flex-row items-center space-x-2 my-1">
+                            <View className="bg-[#00CCBB] rounded-full p-1">
+                                <StarIcon size={18} color="black" />
+                            </View>
                             <Text className="font-normal">
                                 <Text className="font-bold">{rating} </Text> · {genre}
                             </Text>
                         </View>
-                        <View className="flex-row items-center space-x-1">
-                            <LocationMarkerIcon size={22} color="#00CCBB" opacity={0.5} />
-                            <Text className="text-xs text-gray-500">Nearby · {address}</Text>
+                        <View className="flex-row items-center space-x-2">
+                            <View className="bg-[#00CCBB] rounded-full p-1">
+                                <LocationMarkerIcon size={18} color="black" />
+                            </View>
+                            <Text className="text-xs text-gray-500 pr-1">Nearby · {address}</Text>
                         </View>
                         <Text className="text-gray-500 mt-2 pb-4">{description}</Text>
                     </View>
                     <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
-                        <QuestionMarkCircleIcon size={22} color="#00CCBB" opacity={0.5} />
+                        <QuestionMarkCircleIcon size={20} color="black" opacity={0.5} />
                         <Text className='pl-2 flex-1 text-md font-bold'>Have food allergy?</Text>
-                        <ChevronRightIcon color ='#00ccbb'/>
+                        <ChevronRightIcon color ='#00CCBB'strokeWidth={2} />
                     </TouchableOpacity>
                 </View>
 

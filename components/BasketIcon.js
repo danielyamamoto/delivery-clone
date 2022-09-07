@@ -16,7 +16,9 @@ export default function BasKetIcon() {
             <TouchableOpacity 
                 className="mx-5 bg-[#00CCBB] p-4 rounded-lg flex-row items-center space-x-1"
                 onPress={() => navigation.navigate('Basket')}>
-                <Text className="text-white font-extrabold text-lg bg-[#A1A296] py-1 px-2">{items.length}</Text>
+                <View className="bg-[#A1A296] rounded-md">
+                    <Text className="text-white font-extrabold text-lg py-1 px-2 rounded-full">{items.length}</Text>
+                </View>
                 <Text className="flex-1 text-white font-extrabold text-lg text-center">View Basket</Text>
                 <Text className="text-lg text-white font-extrabold">$ {basketTotal}</Text>
             </TouchableOpacity>
