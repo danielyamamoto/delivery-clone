@@ -11,6 +11,7 @@ import BasketScreen from './screens/BasketScreen';
 import PreparingOrderScreen from './screens/PreparingOrderScreen';
 import DeliveryScreen from './screens/DeliveryScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import CategoryScreen from './screens/CategoryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,8 @@ export default function App() {
               options={{ presentation: 'fullScreenModal', headerShown: false }} />
             <Stack.Screen name='Profile' component={ProfileScreen} 
               options={{ presentation: 'modal', headerShown: false }} />
+            <Stack.Screen name='Category' component={CategoryScreen} 
+              options={{ headerShown: false }} />
           </Stack.Navigator>
         </TailwindProvider>
       </Provider>

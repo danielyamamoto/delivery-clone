@@ -15,6 +15,7 @@ export default function RestaurantCard({
     dishes, 
     long, 
     latitude,
+    isCategory=false,
 }) {
     const navigation = useNavigation()
 
@@ -37,18 +38,19 @@ export default function RestaurantCard({
             }}>
             <Image 
                 source={{ uri: urlFor(imgUrl).url(), }} 
-                className="h-36 w-64 rounded" />
-            <View className="pb-4">
-                <Text className="font-bold text-lg pt-2">{description}</Text>
-                <View className="flex-row items-center space-x-2" >
+                className={isCategory ? "h-36 w-full overflow-hidden bg-white" : "h-36 w-64 rounded bg-white"} />
+            <View className={isCategory ? "w-full px-1 pb-4 bg-white" : "w-64 px-1 pb-4 bg-white"}>
+                <Text className="font-bold text-lg pt-2 text-center">{description}</Text>
+                <View className="flex-row items-center space-x-2 pb-1" >
                     <StarIcon size={25} color="#00CCBB" opacity={0.5} />
                     <Text className="font-normal">
                         <Text className="font-bold">{rating} </Text> · {genre}
                     </Text>
                 </View> 
-                <View className="flex-row items-center space-x-1">
+                <View className="flex-row space-x-2">
                     <LocationMarkerIcon size={22} color="#00CCBB" opacity={0.5} />
-                    <Text>Nearby · {address}</Text>
+                    <Text className="font-normal pr-10">
+                        <Text className="font-bold">Nearby</Text>· {address}</Text>
                 </View>
             </View>
         </TouchableOpacity>

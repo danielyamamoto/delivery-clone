@@ -24,6 +24,7 @@ export default function Categories() {
             { categories?.map((category, index) => (
                 <CategoryCard
                     key={category._id}
+                    type={category.name}
                     imgUrl={urlFor(category.image).width(200).url()} 
                     title={category.name} 
                     classType={index < categories.length - 1 ? "relative mr-3" : "relative"} />

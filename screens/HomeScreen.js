@@ -74,7 +74,7 @@ export default function HomeScreen() {
                 <Categories />
                 
                 {/* Featured Row */}
-                { featuredCategories?.map((category) => (
+                { featuredCategories?.map(category => (
                     <FeaturedRow
                         key={category._id}
                         id={category._id}
