@@ -2,9 +2,17 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView, View, TouchableOpacity, Text, Image, TextInput } from 'react-native';
 import { SearchIcon } from 'react-native-heroicons/outline';
+import AllergyText from '../components/AllergyText';
 
 export default function AllergyScreen() {
     const navigation = useNavigation();
+
+    const allergies = [
+        "Nuez", "Maní", "Trigo", 
+        "Camarones", "Aguacate", 
+        "Gluten", "Fresas", "Huevo",
+        "Leche", "Langosta"
+    ]
 
     return (
         <SafeAreaView className="flex-1 items-center justify-start space-y-5 bg-white">
@@ -31,38 +39,12 @@ export default function AllergyScreen() {
                 </View>
             </View>
 
-            <View className="flex-1 flex-row flex-wrap items-center justify-center space-x-4 space-y-4 px-5">
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Nuez</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Maní</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Trigo</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Camarones</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Aguacate</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Gluten</Text>
-                </View>
-            
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Fresas</Text>
-                </View>
-
-                <View className="bg-[#00CCBB] p-2 pl-4 pr-4 rounded-2xl">
-                    <Text className="text-white text-lg font-bold text-center">Huevo</Text>
-                </View>
+            <View className="flex-1 flex-row flex-wrap items-center justify-center px-5">
+                {
+                    allergies.sort().map((allergy, index) => (
+                        <AllergyText key={index} text={allergy} />
+                    ))
+                }
             </View>
 
             <TouchableOpacity 

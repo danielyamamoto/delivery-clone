@@ -53,7 +53,7 @@ export default function RestaurantScreen() {
     return (
         <>
             <BasketIcon />
-            <ScrollView>
+            <ScrollView style={{ maxHeight: "82%" }}>
                 <View>
                     <Image 
                         className="w-full h-56 bg-gray-300 p-4"
@@ -94,20 +94,23 @@ export default function RestaurantScreen() {
                     </TouchableOpacity>
                 </View>
 
-                <View className="pb-36">
+                <View className="">
                     <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
                     { /* DishRow */}
-                    { dishes?.map(dish => (
-                        <DishRow 
-                            key={dish._id}
-                            id={dish._id}
-                            name={dish.name}
-                            image={dish.image}
-                            price={dish.price}
-                            description={dish.short_description}
-                        />
-                    ))}
+                    <View className="flex-1 mb-10">
+                        { dishes?.map(dish => (
+                            <DishRow 
+                                key={dish._id}
+                                id={dish._id}
+                                name={dish.name}
+                                image={dish.image}
+                                price={dish.price}
+                                description={dish.short_description}
+                            />
+                        ))}
+                    </View>
                 </View>
+
             </ScrollView>
         </>
     )
