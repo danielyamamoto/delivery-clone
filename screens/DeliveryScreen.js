@@ -49,9 +49,12 @@ export default function DeliveryScreen() {
                     latitudeDelta: 0.005,
                     longitudeDelta: 0.005,
                 }}
-                className="flex-1 mt-10 z-0"
-                mapType="mutedStandard">
-                    <Marker 
+                showsPointsOfInterest={true}
+                showsUserLocation={true}
+                followsUserLocation={true}
+                mapType="mutedStandard"
+                className="flex-1 mt-6 z-0">
+                    <Marker
                         coordinate={{
                             latitude: restaurant.latitude,
                             longitude: restaurant.long,
@@ -60,15 +63,6 @@ export default function DeliveryScreen() {
                         description={restaurant.description}
                         identifier='origin'
                         pinColor="#00CCBB" />
-                    <Marker 
-                        coordinate={{
-                            latitude: 19.283599936722986,
-                            longitude: -99.13527511644496,
-                        }}
-                        title="Client"
-                        description="Karla Elías"
-                        identifier='origin'
-                        pinColor="#FFC0D0" />
             </MapView>
 
             <View className="bg-white">
