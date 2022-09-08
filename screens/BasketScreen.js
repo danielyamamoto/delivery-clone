@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import { SafeAreaView, View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { selectRestaurant } from '../features/restaurantSlice';
-import { removeFromBasket, selectBasketTotal, selectBasketItems } from '../features/basketSlice';
-import { XCircleIcon } from 'react-native-heroicons/solid';
+import { addToBasket, removeFromBasket, selectBasketTotal, selectBasketItems } from '../features/basketSlice';
+import { SwipeRow } from 'react-native-swipe-list-view';
 import { urlFor } from '../sanity';
 
 export default function BasketScreen() {
@@ -31,13 +31,6 @@ export default function BasketScreen() {
                         <Text className="text-lg font-bold text-center">Basket</Text>
                         <Text className="text-center text-gray-400">{restaurant.title}</Text>
                     </View>
-                    {/*
-                    <TouchableOpacity
-                        onPress={navigation.goBack}
-                        className="rounded-full bg-gray-100 absolute top-3 right-3">
-                        <XCircleIcon size={50} color="#00CCBB" />
-                    </TouchableOpacity>
-                     */}
                 </View>
 
                 <View className="flex-row items-center space-x-4 px-4 py-4 bg-white my-5">
@@ -49,28 +42,39 @@ export default function BasketScreen() {
                         <Text className="text-[#00CCBB]">Change</Text>
                     </TouchableOpacity>
                 </View>
-
-                <ScrollView className="divide-y divide-gray-200">
+                
+                <View className="flex-1">
                     {Object.entries(groupItemsInBasket).map(([key, items]) => (
-                        <View 
+                        <SwipeRow 
                             key={key}
-                            className="flex-row items-center space-x-3 bg-white py-2 px-5">
-                            <Text>{items.length} X </Text>
-                            <Image 
-                                source={{ uri: urlFor(items[0]?.image).url() }}
-                                className="h-12 w-12 rounded-full" />
-                            <Text className="flex-1">{items[0]?.name}</Text>
-                            <Text className="text-gray-600">$ {items[0]?.price}</Text>
-                            <TouchableOpacity>
-                                <Text 
-                                    className="text-[#00CCBB] text-xs"
-                                    onPress={() => dispatch(removeFromBasket({id: key}))}>
-                                        REMOVE
-                                    </Text>
-                            </TouchableOpacity>
-                        </View>
+                            leftActivationValue={50}
+                            rightActivationValue={-50}
+                            onLeftAction={() => dispatch(
+                                addToBasket({
+                                    id: key, 
+                                    name: items[0]?.name, 
+                                    image: items[0]?.image, 
+                                    description: items[0]?.description, 
+                                    price: items[0]?.price
+                                })
+                            )}
+                            onRightAction={() => dispatch(removeFromBasket({id: key}))}
+                            className="divide-y divide-gray-200">
+                                <View className="flex-1 flex-row justify-between items-center bg-[#00CCBB]">
+                                    <Text className="ml-3 text-white">Add</Text>
+                                    <Text className="mr-3 text-white">Delete</Text>
+                                </View>
+                                <View className="flex-row items-center space-x-3 bg-white py-2 px-5">
+                                    <Text>{items.length} X </Text>
+                                    <Image 
+                                        source={{ uri: urlFor(items[0]?.image).url() }}
+                                        className="h-12 w-12 rounded-full" />
+                                    <Text className="flex-1">{items[0]?.name}</Text>
+                                    <Text className="text-gray-600">$ {items[0]?.price}</Text>
+                                </View>
+                        </SwipeRow>
                     ))}
-                </ScrollView>
+                </View>
 
                 <View className="p-5 bg-white mt-5 space-y-4">
                     <View className="flex-row justify-between">
